@@ -93,7 +93,6 @@ export class RecentTracks {
       }
 
       const stats = response.data.recenttracks['@attr']
-      // TODO: this is probably not correct, we need to use the max pages from the first iteration
       this.totalPages = this.totalPages || Number(stats.totalPages)
       const progress = stats.totalPages === '0' ? 1 : (this.totalPages - Number(stats.totalPages)) / this.totalPages
       this.stats = { progress, remainingPages: Number(stats.totalPages), perPage: Number(stats.perPage) }
