@@ -1,4 +1,4 @@
-import { RecentTracks } from '../index.js'
+import { RecentTracks } from '../lib/index.js'
 
 async function getAllPages () {
   const reader = new RecentTracks({

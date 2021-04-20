@@ -2,7 +2,7 @@
   "name": "scrobbles",
   "version": "1.0.0",
   "description": "A Node.js library to read last.fm \"scrobbled\" for a given user",
-  "main": "index.js",
+  "main": "lib/index.js",
   "type": "module",
   "engines": {
     "node": ">=12.0.0"
@@ -26,10 +26,17 @@
   ],
   "scripts": {
     "test:lint": "eslint .",
-    "test:unit": "tap tests",
+    "test:unit": "c8 tap --no-coverage",
     "test": "npm run test:lint && npm run test:unit"
   },
+  "tap": {
+    "test-env": {
+      "NODE_OPTIONS": "--experimental-loader @istanbuljs/esm-loader-hook"
+    }
+  },
   "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.1.2",
+    "c8": "^7.7.1",
     "csv": "^5.4.0",
     "eslint": "^7.23.0",
     "eslint-config-standard": "^16.0.2",
@@ -37,7 +44,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "nock": "^13.0.11",
-    "tap": "^15.0.3"
+    "tap": "^15.0.4"
   },
   "dependencies": {
     "axios": "^0.21.1",

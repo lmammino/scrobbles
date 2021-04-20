@@ -1,6 +1,6 @@
 import { Readable, Transform, pipeline } from 'stream'
 import csv from 'csv'
-import { RecentTracks } from '../index.js'
+import { RecentTracks } from '../lib/index.js'
 
 const reader = new RecentTracks({
   apikey: process.env.API_KEY,
