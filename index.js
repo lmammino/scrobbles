@@ -1,11 +1,13 @@
 import querystring from 'querystring'
 import { promisify } from 'util'
+import EventEmitter from 'events'
 import axios from 'axios'
 import _ow from 'ow'
 
 const sleep = promisify(setTimeout)
 const ow = _ow.default
 const BASE_URL = 'https://ws.audioscrobbler.com/2.0/'
+const axiosIgnoreErrors = { validateStatus: () => true }
 
 const optionsValidation = {
   apikey: ow.string,
@@ -29,12 +31,12 @@ const defaultOptions = {
   retry_base: 2
 }
 
-export class RecentTracks {
+export class RecentTracks extends EventEmitter {
   constructor (options) {
+    super()
     ow(options, ow.object.exactShape(optionsValidation))
     this.options = { ...defaultOptions, ...options }
     this.nextTo = null
-    this.stats = null
     this.totalPages = null
   }
 
@@ -67,19 +69,17 @@ export class RecentTracks {
   async * [Symbol.asyncIterator] () {
     while (true) {
       const url = this.makeUrl()
-      let response = await axios.get(url, { validateStatus: () => true })
+      let response = await axios.get(url, axiosIgnoreErrors)
 
       if (response.data.error) {
-        // TODO: make this into an event or something similar
-        console.error(response.data.error, response.data.message)
-
         // Retry
         let retries = 0
         while (true) {
           // exponentiall fallback on retry
           const sleepTime = this.options.retry_base ** (retries + 1) * this.options.retry_delay_base_ms
+          this.emit('retry', { error: response.data.error, retryNum: retries + 1, retryAfterMs: sleepTime, url })
           await sleep(sleepTime)
-          response = await axios.get(url, { validateStatus: () => true })
+          response = await axios.get(url, axiosIgnoreErrors)
           if (!response.data.error) {
             break
           }
@@ -95,7 +95,7 @@ export class RecentTracks {
       const stats = response.data.recenttracks['@attr']
       this.totalPages = this.totalPages || Number(stats.totalPages)
       const progress = stats.totalPages === '0' ? 1 : (this.totalPages - Number(stats.totalPages)) / this.totalPages
-      this.stats = { progress, remainingPages: Number(stats.totalPages), perPage: Number(stats.perPage) }
+      this.emit('progress', { progress, remainingPages: Number(stats.totalPages), perPage: Number(stats.perPage) })
 
       if (stats.total === '0') {
         return

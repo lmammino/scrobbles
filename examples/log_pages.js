@@ -6,11 +6,16 @@ async function getAllPages () {
     user: 'loige'
   })
 
+  reader.on('retry', ({ error, retryNum, retryAfterMs, url }) => {
+    console.error(`Failure (${retryNum}) ${url}: ${error}. Retrying in ${retryAfterMs}`)
+  })
+
+  reader.on('progress', console.log)
+
   for await (const page of reader) {
     for (const song of page) {
       console.log(song)
     }
-    console.log(reader.stats)
   }
 }
 

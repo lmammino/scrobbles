@@ -8,6 +8,12 @@ const reader = new RecentTracks({
   limit: 200
 })
 
+reader.on('retry', ({ error, retryNum, retryAfterMs, url }) => {
+  console.error(`Failure (${retryNum}) ${url}: ${error}. Retrying in ${retryAfterMs}`)
+})
+
+reader.on('progress', console.error)
+
 const source = Readable.from(reader, { objectMode: true })
 const pageToRecords = new Transform({
   objectMode: true,
@@ -37,5 +43,3 @@ pipeline(
     console.error('Completed!')
   }
 )
-
-source.on('data', _ => console.error(reader.stats))
