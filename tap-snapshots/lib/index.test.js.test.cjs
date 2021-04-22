@@ -5,6 +5,39 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports['lib/index.test.js TAP It should support getting songs for a given time range > songs 1'] = `
+Array [
+  Object {
+    "album": "The Music That Died Alone",
+    "artist": "The Tangent",
+    "date": 1618998074,
+    "name": "In Dark Dreams",
+    "url": "https://www.last.fm/music/The+Tangent/_/In+Dark+Dreams",
+  },
+  Object {
+    "album": "The Music That Died Alone",
+    "artist": "The Tangent",
+    "date": 1618997643,
+    "name": "Up-hill From Here",
+    "url": "https://www.last.fm/music/The+Tangent/_/Up-hill+From+Here",
+  },
+  Object {
+    "album": "Light Grenades",
+    "artist": "Incubus",
+    "date": 1618997416,
+    "name": "Anna Molly",
+    "url": "https://www.last.fm/music/Incubus/_/Anna+Molly",
+  },
+  Object {
+    "album": "Extended Play",
+    "artist": "Spector",
+    "date": 1618997200,
+    "name": "When Did We Get So Normal?",
+    "url": "https://www.last.fm/music/Spector/_/When+Did+We+Get+So+Normal%3F",
+  },
+]
+`
+
 exports['lib/index.test.js TAP it traverses multiple pages and collects all songs > songs 1'] = `
 Array [
   Object {
