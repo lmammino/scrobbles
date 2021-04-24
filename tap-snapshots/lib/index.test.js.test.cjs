@@ -5,6 +5,23 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports['lib/index.test.js TAP It can fetch extended data and use custom track mappers > songs 1'] = `
+Array [
+  "https://lastfm.freetls.fastly.net/i/u/300x300/0de8e1a3ebfc4c939ae8b38e585746ce.png",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/b853fde2d4783803ce144d1c1b4ae87e.jpg",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/f2954fd0cdc6f108439061f65f84dc67.jpg",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/cd8b9addd4f0a7a72559a552e286162c.jpg",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/622935b290ee4217c20a70a8843b36e2.jpg",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/fdd876b99bba44ac978119795b38b364.png",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/fdd876b99bba44ac978119795b38b364.png",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/e332b27a4221427c92de74470254eca7.png",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/06a00dd936c59c7249c54c47abee50ea.jpg",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/f6fd3a04b45d800b1ba7d2f6b4bfaea8.jpg",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/b853fde2d4783803ce144d1c1b4ae87e.jpg",
+  "https://lastfm.freetls.fastly.net/i/u/300x300/b48cf08f855336dc32c48ba0f7362bd9.jpg",
+]
+`
+
 exports['lib/index.test.js TAP It should support getting songs for a given time range > songs 1'] = `
 Array [
   Object {

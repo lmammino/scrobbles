@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "test:lint": "eslint .",
-    "test:unit": "c8 --reporter=lcov tap --no-coverage",
+    "test:unit": "c8 --reporter=lcov --reporter=html tap --no-coverage",
     "test": "npm run test:lint && npm run test:unit"
   },
   "tap": {
