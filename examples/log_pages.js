@@ -6,8 +6,8 @@ async function getAllPages () {
     user: 'loige'
   })
 
-  reader.on('retry', ({ error, retryNum, retryAfterMs, url }) => {
-    console.error(`Failure (${retryNum}) ${url}: ${error}. Retrying in ${retryAfterMs}`)
+  reader.on('retry', ({ message, retryNum, retryAfterMs, url }) => {
+    console.error(`Failure (${retryNum}) ${url}: ${message}. Retrying in ${retryAfterMs}`)
   })
 
   reader.on('progress', console.log)
