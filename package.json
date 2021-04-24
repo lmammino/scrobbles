@@ -29,8 +29,9 @@
   ],
   "scripts": {
     "test:lint": "eslint .",
-    "test:unit": "c8 --reporter=lcov --reporter=html tap --no-coverage",
-    "test": "npm run test:lint && npm run test:unit"
+    "test:unit": "c8 --reporter=lcov --reporter=html tap --reporter=specy --no-coverage",
+    "test": "npm run test:lint && npm run test:unit",
+    "prepare": "husky install"
   },
   "tap": {
     "test-env": {
@@ -46,11 +47,16 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "nock": "^13.0.11",
     "tap": "^15.0.4"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "ow": "^0.23.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }

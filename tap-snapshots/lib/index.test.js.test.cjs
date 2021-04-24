@@ -22,6 +22,166 @@ Array [
 ]
 `
 
+exports['lib/index.test.js TAP It handles retry with fallback as expected > retryEvents 1'] = `
+Array [
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 2,
+    "retryNum": 1,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=50&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 4,
+    "retryNum": 2,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=50&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 8,
+    "retryNum": 3,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=50&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 16,
+    "retryNum": 4,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=50&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 32,
+    "retryNum": 5,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=50&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 64,
+    "retryNum": 6,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=50&extended=0&method=user.getrecenttracks&format=json",
+  },
+]
+`
+
+exports['lib/index.test.js TAP It handles retry with fallback as expected and recover > retryEvents 1'] = `
+Array [
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 2,
+    "retryNum": 1,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=4&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 4,
+    "retryNum": 2,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=4&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 8,
+    "retryNum": 3,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=4&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 16,
+    "retryNum": 4,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=4&extended=0&method=user.getrecenttracks&format=json",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 2,
+    "retryNum": 1,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=4&extended=0&method=user.getrecenttracks&format=json&to=1618997200",
+  },
+  Object {
+    "error": 1,
+    "maxRetries": 6,
+    "message": "Unexpected Server Error",
+    "retryAfterMs": 4,
+    "retryNum": 2,
+    "url": "https://ws.audioscrobbler.com/2.0/?api_key=atestapikey&user=loige&limit=4&extended=0&method=user.getrecenttracks&format=json&to=1618997200",
+  },
+]
+`
+
+exports['lib/index.test.js TAP It handles retry with fallback as expected and recover > songs 1'] = `
+Array [
+  Object {
+    "album": "The Music That Died Alone",
+    "artist": "The Tangent",
+    "date": 1618998074,
+    "name": "In Dark Dreams",
+    "url": "https://www.last.fm/music/The+Tangent/_/In+Dark+Dreams",
+  },
+  Object {
+    "album": "The Music That Died Alone",
+    "artist": "The Tangent",
+    "date": 1618997643,
+    "name": "Up-hill From Here",
+    "url": "https://www.last.fm/music/The+Tangent/_/Up-hill+From+Here",
+  },
+  Object {
+    "album": "Light Grenades",
+    "artist": "Incubus",
+    "date": 1618997416,
+    "name": "Anna Molly",
+    "url": "https://www.last.fm/music/Incubus/_/Anna+Molly",
+  },
+  Object {
+    "album": "Extended Play",
+    "artist": "Spector",
+    "date": 1618997200,
+    "name": "When Did We Get So Normal?",
+    "url": "https://www.last.fm/music/Spector/_/When+Did+We+Get+So+Normal%3F",
+  },
+  Object {
+    "album": "Build A Tower",
+    "artist": "The Slow Readers Club",
+    "date": 1618996987,
+    "name": "Lunatic",
+    "url": "https://www.last.fm/music/The+Slow+Readers+Club/_/Lunatic",
+  },
+  Object {
+    "album": "Days of Thunder",
+    "artist": "The Midnight",
+    "date": 1618996663,
+    "name": "Days of Thunder",
+    "url": "https://www.last.fm/music/The+Midnight/_/Days+of+Thunder",
+  },
+  Object {
+    "album": "Horror Show",
+    "artist": "The Midnight",
+    "date": 1618996359,
+    "name": "Neon Medusa",
+    "url": "https://www.last.fm/music/The+Midnight/_/Neon+Medusa",
+  },
+]
+`
+
 exports['lib/index.test.js TAP It should support getting songs for a given time range > songs 1'] = `
 Array [
   Object {
@@ -55,7 +215,32 @@ Array [
 ]
 `
 
-exports['lib/index.test.js TAP it traverses multiple pages and collects all songs > songs 1'] = `
+exports['lib/index.test.js TAP It traverses multiple pages and collects all songs > progressEvents 1'] = `
+Array [
+  Object {
+    "perPage": 4,
+    "progress": 0,
+    "remainingPages": 3,
+  },
+  Object {
+    "perPage": 4,
+    "progress": 0.3333333333333333,
+    "remainingPages": 2,
+  },
+  Object {
+    "perPage": 4,
+    "progress": 0.6666666666666666,
+    "remainingPages": 1,
+  },
+  Object {
+    "perPage": 50,
+    "progress": 1,
+    "remainingPages": 0,
+  },
+]
+`
+
+exports['lib/index.test.js TAP It traverses multiple pages and collects all songs > songs 1'] = `
 Array [
   Object {
     "album": "Build A Tower",
