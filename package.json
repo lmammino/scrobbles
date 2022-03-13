@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "cli-progress": "^3.10.0",
     "csv": "^5.5.3",
     "ow": "^0.23.0",
     "yargs": "^17.3.1"
