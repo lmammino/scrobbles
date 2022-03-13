@@ -1,6 +1,6 @@
 {
   "name": "scrobbles",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Node.js library to read last.fm \"scrobbled\" for a given user",
   "main": "lib/index.js",
   "files": [
@@ -45,7 +45,7 @@
   "devDependencies": {
     "@istanbuljs/esm-loader-hook": "^0.1.2",
     "c8": "^7.7.1",
-    "csv": "^5.4.0",
+    "csv": "^5.5.3",
     "eslint": "^7.23.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
