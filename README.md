@@ -180,6 +180,25 @@ Will print something like this:
 ```
 
 
+## CLI usage
+
+`scrobbles` ships also with a convenient CLI that you can use to easily export data from a given Last.fm account.
+
+Here's an example:
+
+```bash
+SCROBBLES_APIKEY=xxx npx scrobbles -u loige -f 1998-01-01 -t 2022-03-14 -F csv > lastfm_export.csv
+```
+
+The above example exports all the tracks from 1998-01-01 to 2022-03-14 for user loige in CSV format
+
+You can use the following command to see all the supported options:
+
+```bash
+npx scrobbles --help
+```
+
+
 ## Contributing
 
 Everyone is very welcome to contribute to this project.
