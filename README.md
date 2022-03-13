@@ -184,7 +184,21 @@ Will print something like this:
 
 `scrobbles` ships also with a convenient CLI that you can use to easily export data from a given Last.fm account.
 
-Here's an example:
+You can install the CLI helper globally in your system with:
+
+```bash
+npm i -g scrobbles
+```
+
+Then it will be available as an executable with the name of `scrobbles.
+
+Alternatively you can install and invoke the executably dynamically through `npx` by just running:
+
+```bash
+npx scrobbles
+```
+
+Here's an example on how to use `scrobbles` (replace `npx scrobbles` with `scrobbles` if you already installed it globally):
 
 ```bash
 SCROBBLES_APIKEY=xxx npx scrobbles -u loige -f 1998-01-01 -t 2022-03-14 -F csv > lastfm_export.csv
